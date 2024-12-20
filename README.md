@@ -1,4 +1,4 @@
-**User Registration and Login:**
+*User Registration and Login:*
      Allow job seekers and employers to create accounts and login to access the application's features.
 
 Job Search and Filtering:
