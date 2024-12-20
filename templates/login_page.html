@@ -1,0 +1,67 @@
+{%if profile%} {%extends "base.html"%} {%elif admin%} {%extends "admin.html"%}
+{%elif req%} {%extends "req.html"%} {%else%} {%extends "normal_user.html"%}
+{%endif%} {%block title%} Login {%endblock title%} {% block body %}
+
+<div class="reg-contain-box">
+  <div
+    class="center-align center-container"
+    style="display: flex; padding-top: 25px"
+  >
+    <div class="reg-left-banner inline-block">
+      <div class="reg-text color-000">
+        <div class="register-study-img">
+          <img src="static\test3.webp" class="study-logo-size" />
+        </div>
+      </div>
+    </div>
+    <!-- Register/Login tab starts -->
+    <div class="login-box inline-block">
+      <section class="padding-15 text-center tab-block">
+        <div class="register-login-tab-block">
+          <div class="inline-block cursor-pointer color-e2e2e2 back-button">
+            <span class="tab-txt-position logo-color">LOGIN </span
+            ><!-- <span class="arrow-selected"></span> -->
+          </div>
+        </div>
+      </section>
+      <!-- Register/Login tab ends -->
+      <form action="/login" method="post">
+        <div class="form-group">
+          {%if msg%}
+          <p class="text-danger text-center"><strong>{{msg}}</strong></p>
+          {%endif%}
+          <label for="email">Email address :</label>
+          <input
+            type="email"
+            name="email"
+            class="form-control"
+            id="email"
+            placeholder="Enter email"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password :</label>
+          <input
+            type="password"
+            name="password"
+            class="form-control"
+            id="password"
+            placeholder="Password"
+          />
+        </div>
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="remember-me" />
+          <label class="form-check-label" for="remember-me">Remember me</label>
+        </div>
+        <button type="submit" class="submit-btn btn-primary">Sign in</button>
+        <hr />
+        <p>
+          <span class="new-user">New user? </span>
+          <a href="/newuser" class="logo-color">Sign up here</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock body%}

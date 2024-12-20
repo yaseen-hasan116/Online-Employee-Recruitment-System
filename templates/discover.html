@@ -1,0 +1,62 @@
+{%if profile%} {%extends "base.html"%} {%elif admin%} {%extends "admin.html"%}
+{%elif req%} {%extends "req.html"%} {%else%} {%extends "normal_user.html"%}
+{%endif%} {%block title%} Home {%endblock title%} {% block body %}
+<div class="container">
+  <div class="d-flex gap-2 justify-content-center mt-10 mb-10">
+    <div class="d-flex home-categories">
+      <img
+        class="no-load"
+        src="static\all.jpg"
+        loading="lazy"
+        width="740"
+        height="800"
+      />
+      <a href="/job_postings" class="category-overlay">Current Openings</a>
+    </div>
+    <div class="gap-2" style="display: grid; grid-template-columns: auto auto">
+      <div class="home-categories">
+        <img
+          class="no-load"
+          src="static\computerscience.jpg"
+          loading="lazy"
+          width="740"
+          height="800"
+        />
+        <a href="/computer_science" class="category-overlay"
+          >Information Technology</a
+        >
+      </div>
+      <div class="home-categories">
+        <img
+          class="no-load"
+          src="static\civil.webp"
+          loading="lazy"
+          width="400"
+          height="400"
+        />
+        <a href="/Civil" class="category-overlay">Civil</a>
+      </div>
+      <div class="home-categories">
+        <img
+          class="no-load"
+          src="static\electrical.webp"
+          loading="lazy"
+          width="400"
+          height="400"
+        />
+        <a href="/Electrical" class="category-overlay">Electrical</a>
+      </div>
+      <div class="home-categories">
+        <img
+          class="no-load"
+          src="static\mechanical.webp"
+          loading="lazy"
+          width="400"
+          height="400"
+        />
+        <a href="/Mechanical" class="category-overlay">Mechanical</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock body%}

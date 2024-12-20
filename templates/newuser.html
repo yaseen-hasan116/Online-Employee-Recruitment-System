@@ -1,0 +1,116 @@
+{%if profile%} {%extends "base.html"%} {%elif admin%} {%extends "admin.html"%}
+{%elif req%} {%extends "req.html"%} {%else%} {%extends "normal_user.html"%}
+{%endif%} {% block title %} Sign up {% endblock title %} {% block body %}
+<div
+  class="d-flex justify-content-center align-items-center"
+  style="min-height: 100vh"
+>
+  <div class="col-md-6">
+    <h2 class="font-weight-bold logo-color">Create Account</h2>
+    <div class="register-form" style="max-width: 330px; margin: 0 auto">
+      <div class="text-primary text-center">
+        {%if msg%}
+        <p class="text-success text-center">{{msg}}</p>
+        {%elif msg1%}
+        <p class="text-exists text-center">{{msg1}}</p>
+        {%endif%}
+      </div>
+      <div class="card-body">
+        <form
+          onsubmit="return validatePassword()"
+          action="/newuser"
+          method="post"
+        >
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input
+              type="text"
+              class="form-input"
+              id="username"
+              name="username"
+              placeholder=""
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input
+              type="password"
+              class="form-input"
+              id="password"
+              name="password"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="confirm-password">Confirm Password:</label>
+            <input
+              type="password"
+              class="form-input"
+              id="confirm-password"
+              name="confirm-password"
+              required
+            />
+            <small
+              id="password-error"
+              class="form-text text-danger"
+              style="display: none"
+              >Passwords do not match.</small
+            >
+          </div>
+          <div class="form-group">
+            <label for="email">Email address:</label>
+            <input
+              type="email"
+              class="form-input"
+              id="email"
+              name="email"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="Account Type" class="form-label"
+              >Select Account Type</label
+            >
+            <select
+              class="form-select"
+              id="employment-type"
+              name="account-type"
+              required
+            >
+              <option value="">Select Account Type</option>
+              <option value="login user">
+                Searching for job Opportunities
+              </option>
+              <option value="Recruiter account">Recruiter Account</option>
+            </select>
+          </div>
+          <button type="submit" class="action-btn btn-primary">
+            Create Account
+          </button>
+          <hr />
+          <p>
+            <span class="new-user">Already a member? </span>
+            <a href="/login" class="logo-color">Login here</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function validatePassword() {
+    var password = document.getElementById("password").value;
+    var confirmPassword = document.getElementById("confirm-password").value;
+    var passwordError = document.getElementById("password-error");
+
+    if (password !== confirmPassword) {
+      passwordError.style.display = "block";
+      return false;
+    }
+
+    return true;
+  }
+</script>
+{% endblock body %}

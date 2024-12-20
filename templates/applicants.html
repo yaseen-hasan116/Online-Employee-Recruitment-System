@@ -1,0 +1,43 @@
+{%if profile%} {%extends "base.html"%} {%elif admin%} {%extends "admin.html"%}
+{%elif req%} {%extends "req.html"%} {%else%} {%extends"normal_user.html" %}
+{%endif%} {% block body %}
+<div class="container mt-2">
+  <div class="row">
+    {% for i in range(name|length) %}
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h4 class="card-title">{{ name[i] }}</h4>
+          <h6 class="card-subtitle mb-2 text-muted">{{ email[i] }}</h6>
+          <p class="card-text"><strong>Phone No:</strong> {{ phone[i] }}</p>
+          <p class="card-text">
+            <strong>Cover Letter:</strong> {{ cover_letter[i] }}
+          </p>
+          <p class="card-text">
+            <strong>Reference:</strong> {{ reference1[i] }}
+          </p>
+          <p class="card-text">
+            <strong>Portfolio:</strong> {{ portfolio[i] }}
+          </p>
+          <p class="card-text">
+            <strong>Certifications:</strong> {{ certifications[i] }}
+          </p>
+          <div class="row">
+            <div class="col">
+              <a class="btn btn-primary btn-block" href="/accept/{{ email[i] }}"
+                >Accept</a
+              >
+            </div>
+            <div class="col">
+              <a class="btn btn-danger btn-block" href="/decline/{{ email[i] }}"
+                >Decline</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock body %}

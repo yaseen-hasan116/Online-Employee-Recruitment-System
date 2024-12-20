@@ -1,0 +1,244 @@
+.image-container {
+  position: relative;
+  width: 100%;
+  max-height: 650px;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.image-container .centered-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.image-container .centered-text h1 {
+  color: white;
+  font-size: 30px;
+}
+
+/* Media Query for larger screens */
+@media screen and (min-width: 601px) {
+  .image-container .centered-text h1 {
+    font-size: 69px;
+  }
+}
+
+/* Common CSS for all screen sizes */
+footer {
+  margin-top: 20px;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Style for profile.html */
+.profile-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #000;
+}
+
+#status {
+  color: #ccc;
+}
+#application {
+  font-weight: 400;
+}
+#edit-profile-btn {
+  background: #ffa937 !important;
+  border: 0 !important;
+}
+
+.underline-input {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  outline: none;
+  width: 100%;
+}
+
+.underline-input:focus {
+  border-bottom-color: #007bff;
+}
+
+/* Style for job posting */
+.job-post-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f7f7f7;
+}
+
+.job-post-container h1 {
+  color: #ff4081;
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.job-post-container p {
+  color: #555;
+  font-size: 18px;
+  text-align: center;
+  max-width: 600px;
+  margin-bottom: 40px;
+}
+
+.job-post-container .button {
+  display: inline-block;
+  background-color: #4caf50;
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.job-post-container .button:hover {
+  background-color: #388e3c;
+}
+.job_posting_card {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  background-position: center bottom 30px !important;
+  background: #f8f9fa;
+  height: 450px;
+}
+.job_posting_card h1,
+.job_posting_card h3 {
+  font-size: 1.2em;
+  line-height: 1.3;
+}
+.job_posting_card h3 {
+  font-size: 1em;
+}
+body {
+  background: linear-gradient(90deg, #568cc9 0%, #616cda 100%);
+}
+.btn-apply {
+  padding: 6px;
+  background: #568cc9;
+  color: #fff;
+  text-align: center;
+  width: 40% !important;
+  margin: 0 auto;
+}
+.btn-apply:hover {
+  text-decoration: none;
+  color: #fff;
+}
+.center-container {
+  width: 90%;
+  margin: 0 auto;
+}
+.logo {
+  font-family: cursive;
+  color: #e5ff00 !important;
+  font-size: 24px;
+  font-weight: 600;
+}
+.logo-color {
+  color: #e5ff00;
+}
+.logo-color:hover {
+  color: #e5ff00;
+}
+
+.gap-2 {
+  grid-gap: 10px;
+  gap: 10px;
+}
+img.no-load {
+  height: auto;
+  max-width: 100%;
+  min-width: 100%;
+  min-height: 100%;
+}
+.home-categories {
+  position: relative;
+}
+.category-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, rgba(1, 4, 3, 1), rgba(250, 250, 250, 0));
+  display: flex;
+  align-items: flex-end;
+  padding: 10px;
+  color: #fff !important;
+}
+.category-overlay:hover {
+  text-decoration: none;
+}
+.container {
+  max-width: 90% !important;
+}
+.container.job-application {
+  width: 40% !important;
+}
+/* .navbar a {
+  color: #fff;
+} */
+.text-exists {
+  color: #fff;
+}
+header nav.navbar {
+  max-width: 90%;
+  margin: 0 auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+.btn-secondary.dropdown-toggle {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+.btn-secondary.dropdown-toggle i {
+  margin-right: 10px;
+}
+.profile-left-content {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 25px;
+  background: #fff;
+  border-radius: 50% 0 0 50%;
+  padding: 60px;
+  padding-right: 0;
+  margin-bottom: 0;
+}
+.card-item-group {
+  display: flex;
+}
+.card-item-group div {
+  padding-right: 5px;
+  width: 50%;
+}
+.card-item-group h6 {
+  color: #aaa;
+  margin: 0;
+  text-transform: capitalize;
+}
+.card.new-user-card {
+  border: 0;
+  background-color: transparent;
+}
+h5.card-title.company-name-title {
+  margin: 0 0px 22px 0;
+}
+p.text-success-msg.text-center {
+  color: #e5ff00 !important;
+}

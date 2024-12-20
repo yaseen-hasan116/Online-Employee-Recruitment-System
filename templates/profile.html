@@ -1,0 +1,196 @@
+{%if profile%} {%extends "base.html"%} {%elif admin%} {%extends "admin.html"%}
+{%elif req%} {%extends "req.html"%} {%else%} {%extends "normal_user.html"%}
+{%endif%} {% block title %}Your Profile{% endblock title %} {% block body %}
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-12">
+      <form action="/save-profile" method="POST" class="d-flex">
+        <div class="form-group profile-left-content">
+          <label for="profile-photo-upload">
+            {% if profile_photo %}
+            <img
+              src="{{ profile_photo }}"
+              alt="Profile Photo"
+              id="profile-photo-preview"
+              class="profile-photo"
+            />
+            {% else %}
+            <img
+              src="static/default-profile.jpg"
+              alt="Profile Photo"
+              id="profile-photo-preview"
+              class="profile-photo"
+            />
+            {% endif %}
+            <input
+              type="file"
+              id="profile-photo-upload"
+              name="profile-photo-upload"
+              style="display: none"
+            />
+          </label>
+          <h3 id="username">{{ username }}</h3>
+          <br />
+          <h4 id="status">Job Status</h4>
+          <h5 id="application">{{job}}</h5>
+        </div>
+        <div class="text-white">
+          <div class="form-group">
+            <label for="education-1">Username</label>
+            <input
+              type="text"
+              id="education-1"
+              name="username"
+              class="form-control underline-input"
+              required
+              {%if
+              username
+              %}
+              value="{{ username }}"
+              {%endif%}
+            />
+          </div>
+          <div class="d-flex">
+            <div class="mr-3">
+              <div class="form-group">
+                {% if education1 %}
+                <label for="education-1">Education 1</label>
+                <input
+                  type="text"
+                  id="education-1"
+                  name="education-1"
+                  value="{{ education1 }}"
+                  class="form-control underline-input"
+                />
+                {% else %}
+                <label for="education-1">Education 1</label>
+                <input
+                  type="text"
+                  id="education-1"
+                  name="education-1"
+                  class="form-control underline-input"
+                />
+                {% endif %}
+              </div>
+              <div class="form-group">
+                {% if education2 %}
+                <label for="education-2">Education 2</label>
+                <input
+                  type="text"
+                  id="education-2"
+                  name="education-2"
+                  value="{{ education2 }}"
+                  class="form-control underline-input"
+                />
+                {% else %}
+                <label for="education-2">Education 2</label>
+                <input
+                  type="text"
+                  id="education-2"
+                  name="education-2"
+                  class="form-control underline-input"
+                />
+                {% endif %}
+              </div>
+            </div>
+            <div>
+              <div class="form-group">
+                {% if experience1 %}
+                <label for="experience-1">Experience 1</label>
+                <input
+                  type="text"
+                  id="experience-1"
+                  name="experience-1"
+                  value="{{ experience1 }}"
+                  class="form-control underline-input"
+                />
+                {% else %}
+                <label for="experience-1">Experience 1</label>
+                <input
+                  type="text"
+                  id="experience-1"
+                  name="experience-1"
+                  class="form-control underline-input"
+                />
+                {% endif %}
+              </div>
+              <div class="form-group">
+                {% if experience2 %}
+                <label for="experience-2">Experience 2</label>
+                <input
+                  type="text"
+                  id="experience-2"
+                  name="experience-2"
+                  value="{{ experience2 }}"
+                  class="form-control underline-input"
+                />
+                {% else %}
+                <label for="experience-2">Experience 2</label>
+                <input
+                  type="text"
+                  id="experience-2"
+                  name="experience-2"
+                  class="form-control underline-input"
+                />
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            {% if bio %}
+            <label for="bio">Bio</label>
+            <textarea id="bio" name="bio" class="form-control underline-input">
+{{ bio }}</textarea
+            >
+            {% else %}
+            <label for="bio">Bio</label>
+            <textarea
+              id="bio"
+              name="bio"
+              class="form-control underline-input"
+            ></textarea>
+            {% endif %}
+          </div>
+          <div class="text-end">
+            <button type="submit" class="btn btn-primary" id="edit-profile-btn">
+              Save Profile
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  const profilePhotoUpload = document.getElementById("profile-photo-upload");
+  const profilePhotoPreview = document.getElementById("profile-photo-preview");
+  const editProfileBtn = document.getElementById("edit-profile-btn");
+  const username = document.getElementById("username");
+
+  profilePhotoUpload.addEventListener("change", function (event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+      profilePhotoPreview.src = e.target.result;
+    };
+
+    reader.readAsDataURL(file);
+  });
+
+  editProfileBtn.addEventListener("click", function () {
+    const usernameText = username.innerText;
+    const education1 = document.getElementById("education-1").value;
+    const education2 = document.getElementById("education-2").value;
+    const experience1 = document.getElementById("experience-1").value;
+    const experience2 = document.getElementById("experience-2").value;
+    const bio = document.getElementById("bio").value;
+
+    // Perform actions to save the updated profile data
+    // e.g., send the data to the server for processing
+
+    console.log("Profile updated successfully!");
+  });
+</script>
+{% endblock body %}

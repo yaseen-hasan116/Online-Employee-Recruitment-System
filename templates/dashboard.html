@@ -1,0 +1,59 @@
+{% extends "admin.html" %} {% block title %}Job Postings{% endblock title %} {%
+block body %}
+<div class="container">
+  <div class="gap-2" style="display: grid; grid-template-columns: auto auto">
+    <div class="home-categories">
+      <img
+        class="no-load"
+        src="\static\post_a_job.webp"
+        loading="lazy"
+        width="400"
+        height="400"
+      />
+      <a onclick="window.location.href = '/new_job'" class="category-overlay"
+        >Add New Job Posting</a
+      >
+    </div>
+    <div class="home-categories">
+      <img
+        class="no-load"
+        src="\static\show_al_job_posting.webp"
+        loading="lazy"
+        width="400"
+        height="400"
+      />
+      <a
+        onclick="window.location.href = '/job_postings'"
+        class="category-overlay"
+        >Show All Job Postings</a
+      >
+    </div>
+    <div class="home-categories">
+      <img
+        class="no-load"
+        src="\static\show_all_applied.webp"
+        loading="lazy"
+        width="400"
+        height="400"
+      />
+      <a
+        onclick="window.location.href = '/applications'"
+        class="category-overlay"
+        >Show All Applied Applications</a
+      >
+    </div>
+    <div class="home-categories">
+      <img
+        class="no-load"
+        src="\static\manage_reg_contacts.webp"
+        loading="lazy"
+        width="400"
+        height="400"
+      />
+      <a onclick="window.location.href = '/accouts'" class="category-overlay"
+        >Manage Registered User Account</a
+      >
+    </div>
+  </div>
+</div>
+{% endblock body %}

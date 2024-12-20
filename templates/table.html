@@ -1,0 +1,26 @@
+{% extends "admin.html" %} {% block title %}User Accounts{% endblock title %} {%
+block body %}
+<div class="container mt-2">
+  <h2 class="text-white">User Accounts</h2>
+  <table class="table table-bordered mt-4">
+    <thead class="thead-dark">
+      <tr>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Email</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody style="background-color: #fff">
+      {% for i in range(username_list|length) %}
+      <tr>
+        <td>{{ username_list[i] }}</td>
+        <td>{{ password_list[i] }}</td>
+        <td>{{ email_list[i] }}</td>
+        <td><a href="/dele/{{username_list[i]}}">Delete</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock body %}

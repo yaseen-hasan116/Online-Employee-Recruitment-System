@@ -1,0 +1,52 @@
+{% if profile %} {% extends "base.html" %} {% elif admin %} {% extends
+"admin.html" %} {% elif req %} {% extends "req.html" %} {% else %} {% extends
+"normal_user.html" %} {% endif %} {% block body %}
+<div class="container mt-4">
+  <div class="row">
+    {% for i in range(company_name|length) %}
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title company-name-title">{{ company_name[i] }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ job_title[i] }}</h6>
+          <p class="card-text">
+            <strong>Job Description:</strong> {{ job_description[i] }}
+          </p>
+          <p class="card-text">
+            <strong>Requirements:</strong> {{ job_requirements[i] }}
+          </p>
+          <p class="card-text">
+            <strong>Employment Type:</strong> {{ employment_type[i] }}
+          </p>
+          <p class="card-text"><strong>Location:</strong> {{ location[i] }}</p>
+          <p class="card-text">
+            <strong>Compensation:</strong> {{ compensation[i] }}
+          </p>
+          <p class="card-text">
+            <strong>Application Deadline:</strong> {{ application_deadline[i] }}
+          </p>
+          <p class="card-text">
+            <strong>Contact Info:</strong> {{ contact_info[i] }}
+          </p>
+          <div class="row">
+            {% if profile %}
+            <div class="col">
+              <a class="btn-apply btn-block" href="/apply">Apply Now</a>
+            </div>
+            {% elif admin %}
+            <div class="col">
+              <a
+                class="btn btn-danger btn-block my-2"
+                href="/delete/{{ company_name[i] }}/{{ job_title[i] }}"
+                >Delete</a
+              >
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock body %}

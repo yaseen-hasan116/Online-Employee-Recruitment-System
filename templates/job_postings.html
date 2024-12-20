@@ -1,0 +1,65 @@
+{% if profile %} {% extends "base.html" %} {% elif admin %} {% extends
+"admin.html" %} {% elif req %} {% extends "req.html" %} {% else %} {% extends
+"normal_user.html" %} {% endif %} {% block body %}
+<div class="container mt-4">
+  <div class="row">
+    {% for i in range(company_name|length) %}
+    <div class="col-md-4 mb-4">
+      <div class="job_posting_card">
+        <div class="card-body">
+          <h1 class="card-title">{{ job_title[i] }}</h1>
+          <h3 class="card-subtitle mb-2 text-muted">
+            {{ company_name[i] }}, {{ location[i] }}
+          </h3>
+          <p class="card-text">{{ job_description[i] }}</p>
+          <p class="card-text">{{ job_requirements[i] }}</p>
+          <div class="card-text card-item-group">
+            <div>
+              <h6>End Date</h6>
+              <p>{{ application_deadline[i] }}</p>
+            </div>
+            <div>
+              <h6>Contact</h6>
+              <p>{{ contact_info[i] }}</p>
+            </div>
+          </div>
+          <div class="card-text card-item-group">
+            <div>
+              <h6>Type</h6>
+              <p>{{ employment_type[i] }}</p>
+            </div>
+            <div>
+              <h6>Salary</h6>
+              <p>{{ compensation[i] }}</p>
+            </div>
+          </div>
+          <div class="row">
+            {% if admin %}
+            <div class="col">
+              <a
+                class="btn btn-danger btn-block my-2"
+                href="/delete/{{ company_name[i] }}/{{ job_title[i] }}"
+                >Delete</a
+              >
+            </div>
+            {%elif req%}
+            <div class="col">
+              <a
+                class="btn btn-danger btn-block my-2"
+                href="/delete/{{ company_name[i] }}/{{ job_title[i] }}"
+                >Delete</a
+              >
+            </div>
+            {%elif profile%}
+            <div class="col">
+              <a class="btn-apply btn-block" href="/apply">Apply Now</a>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock body %}
