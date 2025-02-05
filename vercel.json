@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "event_organizing_project/wsgi.py",
+      "src": "Online-Employee-Recruitment-System/wsgi.py",
       "use": "@vercel/python"
     },
     {
@@ -16,7 +16,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "event_organizing_project/wsgi.py"
+      "dest": "Online-Employee-Recruitment-System/wsgi.py"
     }
   ]
 }
